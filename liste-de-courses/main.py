@@ -43,20 +43,20 @@ while True:
         # Ajouter l'élément
         liste_de_courses.append(element)
         # Afficher un message
-        print(f"L'élément {element} a été bien ajouté à la liste de courses.")
+        print(f"L'élément {element} a bien été ajouté à la liste de courses.")
         # Revenir au début
         continue
 
     # Si 2 - RETIRER
     elif int(action) == 2:
         # Demander l'élément à retirer
-        element = input("Veuillez entrer le nom de l'élément à retirer : ")
+        element = input("Entrez le nom de l'élément à retirer : ")
         # SI l'élément existe dans la liste
         if element in liste_de_courses:
             # Retirer l'élément
             liste_de_courses.remove(element)
             # Afficher un message
-            print(f"L'élément {element} a été bien retiré de la liste de courses.")
+            print(f"L'élément {element} a bien été retiré de la liste de courses.")
             # Revenir au début
             continue
         # SI n'existe pas
@@ -89,7 +89,7 @@ while True:
             # Vider la liste
             liste_de_courses.clear()
             # Afficher un message
-            print("La liste de courses a été vidée.")
+            print("La liste de courses a bien été vidée.")
             # Revenir au début
             continue
         # Sinon
