@@ -1,7 +1,7 @@
 from pathlib import Path
 
 source_path = Path(__file__).resolve() 
-target_path = source_path.parent
+target_path = source_path.parent / "data"
 
 d = {"Films": ["Le seigneur des anneaux",
                "Harry Potter",
