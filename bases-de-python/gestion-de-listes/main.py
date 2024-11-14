@@ -31,13 +31,15 @@ while True:
 
     if not action.isdigit():
         print("Veuillez entrer un chiffre valide !")
+        continue
 
-    elif int(action) == AJOUTER:
+    action = int(action)
+    if action == AJOUTER:
         element = input("Entrez le nom de l'élément à ajouter : ")
         liste_de_courses.append(element)
         print(f"L'élément {element} a bien été ajouté à la liste de courses.")
 
-    elif int(action) == RETIRER:
+    elif action == RETIRER:
         element = input("Entrez le nom de l'élément à retirer : ")
         if element in liste_de_courses:
             liste_de_courses.remove(element)
@@ -45,21 +47,21 @@ while True:
         else:
             print(f"L'élément {element} ne fait pas partie de la liste de courses.")
 
-    elif int(action) == AFFICHER:
-        if len(liste_de_courses) > 0:
-            for i, element in enumerate(liste_de_courses):
-                print(f"{i+1}. {element}")
+    elif action == AFFICHER:
+        if liste_de_courses:
+            for i, element in enumerate(liste_de_courses, 1):
+                print(f"{i}. {element}")
         else:
             print("La liste de courses ne contient aucun élément.")
 
-    elif int(action) == VIDER:
-        if len(liste_de_courses) > 0:
+    elif action == VIDER:
+        if liste_de_courses:
             liste_de_courses.clear()
             print("La liste de courses a bien été vidée.")
         else:
             print("La liste de courses est déjà vide.")
 
-    elif int(action) == QUITTER:
+    elif action == QUITTER:
         with open(CHEMIN_LISTE, "w") as f:
             json.dump(liste_de_courses, f)
         print("A bientôt !")

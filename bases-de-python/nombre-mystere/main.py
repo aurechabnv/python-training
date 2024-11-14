@@ -4,7 +4,7 @@
 
 import random
 
-NOMBRE_MYSTERE = random.randint(0, 100)
+NOMBRE_MYSTERE = random.randint(1, 100)
 NB_ESSAIS_MAX = 5
 nb_essais = 0
 
@@ -21,13 +21,14 @@ Devine le nombre : """)
     else:
         nb_essais += 1
 
-    if int(nombre) == NOMBRE_MYSTERE:
+    nombre = int(nombre)
+    if nombre == NOMBRE_MYSTERE:
         print(f"""Bravo ! Le nombre mystère était bien {NOMBRE_MYSTERE}.
 Tu as trouvé en {nb_essais} essai{"s" if nb_essais > 1 else ""}.""")
         break
-    elif int(nombre) < NOMBRE_MYSTERE:
+    elif nombre < NOMBRE_MYSTERE:
         print(f"Le nombre mystère est plus grand que {nombre}.")
-    elif int(nombre) > NOMBRE_MYSTERE:
+    elif nombre > NOMBRE_MYSTERE:
         print(f"Le nombre mystère est plus petit que {nombre}.")
 
 # Boucle finie, nombre d'essais max atteint
