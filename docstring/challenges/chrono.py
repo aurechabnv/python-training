@@ -35,8 +35,8 @@ class Chrono:
         """
         Arrête le chronomètre et calcule le temps écoulé
         """
-        self._started = False
-        if self._start_time:
+        if self._started:
+            self._started = False
             self._time_lapse += time() - self._start_time
 
     def reset(self):
