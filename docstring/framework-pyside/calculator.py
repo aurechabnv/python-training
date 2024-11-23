@@ -110,8 +110,8 @@ class Calculator(QWidget):
         for button_text, button in self.buttons.items():
             QShortcut(QKeySequence(button_text), self, button.clicked.emit)
 
-        QShortcut(QKeySequence(QtCore.Qt.Key.Key_Enter), self, self.compute_result)
-        QShortcut(QKeySequence(QtCore.Qt.Key.Key_Backspace), self, self.remove_last_character)
+        QShortcut(QKeySequence(QtCore.Qt.Key_Enter), self, self.compute_result)
+        QShortcut(QKeySequence(QtCore.Qt.Key_Backspace), self, self.remove_last_character)
 
 
 app = QApplication()
