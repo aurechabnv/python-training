@@ -1,9 +1,10 @@
-from PySide2.QtWidgets import QWidget, QPushButton, QVBoxLayout, QMessageBox
+from PySide2 import QtWidgets
 
-
-class MainWindow(QWidget):
-    def __init__(self):
+class MainWindow(QtWidgets.QMainWindow):
+    def __init__(self, ctx):
         super().__init__()
+        self.ctx = ctx
+        self.setWindowTitle("warmup")
         self.setup_ui()
 
     def setup_ui(self):
@@ -14,22 +15,18 @@ class MainWindow(QWidget):
         self.setup_connections()
 
     def create_widgets(self):
-        self.btn_clique = QPushButton("Clique")
-
-    def modify_widgets(self):
         pass
 
+    def modify_widgets(self):
+        css_file = self.ctx.get_resource("style.css")
+        with open(css_file, "r") as f:
+            self.setStyleSheet(f.read())
+
     def create_layouts(self):
-        self.main_layout = QVBoxLayout(self)
+        pass
 
     def add_widgets_to_layouts(self):
-        self.main_layout.addWidget(self.btn_clique)
+        pass
 
     def setup_connections(self):
-        self.btn_clique.clicked.connect(self.bouton_clicked)
-
-    def bouton_clicked(self):
-        message_box = QMessageBox()
-        message_box.setWindowTitle("Bravo")
-        message_box.setText("Tu as réussi ta première application")
-        message_box.exec_()
+        pass
