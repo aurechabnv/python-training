@@ -1,0 +1,10 @@
+altgraph==0.17.4
+fbs==0.8.4
+importlib-metadata==6.7.0
+packaging==24.0
+pyinstaller==5.13.2
+pyinstaller-hooks-contrib==2024.7
+PySide2==5.13.1
+shiboken2==5.13.1
+typing_extensions==4.7.1
+zipp==3.15.0
