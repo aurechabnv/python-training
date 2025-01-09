@@ -7,16 +7,29 @@ class Category(models.Model):
     name = models.CharField(max_length=36)
     slug = models.SlugField()
 
+    class Meta:
+        verbose_name = "Catégorie"
+
+    def __str__(self):
+        return self.name
+
 
 class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    category = models.ManyToManyField(Category)
     title = models.CharField(max_length=100)
     slug = models.SlugField(blank=True)
+    category = models.ManyToManyField(Category)
     published = models.BooleanField(default=False)
     date = models.DateField(blank=True, null=True)
     content = models.TextField()
     description = models.TextField()
+
+    class Meta:
+        verbose_name = "Article"
+        ordering = ["-date"]
+
+    def __str__(self):
+        return self.title
 
     def save(self, *args, **kwargs):
         if not self.slug:
