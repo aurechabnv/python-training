@@ -6,9 +6,11 @@ from django.template.loader import render_to_string
 from blog.models import BlogPost
 
 
-@user_passes_test(lambda u: u.username == 'test')
+@user_passes_test(lambda u: u.username == 'doare')
 def index(request):
-    return render(request, 'blog/index.html')
+    posts = BlogPost.objects.all()
+    # posts = BlogPost.objects.filter(pk__in=[1,2,3])
+    return render(request, 'blog/index.html', context={'posts': posts})
     # return redirect('home')
 
 def article(request, numero_article):

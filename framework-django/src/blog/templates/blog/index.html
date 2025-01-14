@@ -1,10 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Le Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <h1>Le Blog</h1>
+    {% if posts %}
+        <p>Le blog contient {{ posts.count }} articles</p>
+    {% elif not posts %}
+        <p>Le blog ne contient aucun article</p>
+    {% endif %}
 </body>
 </html>
