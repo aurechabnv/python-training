@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <a href="{% url 'blog-index' %}">Retour au sommaire</a>
     <h1>{{ blog_post.title }}</h1>
     <h2>{{ blog_post.number_of_words }} mots</h2>
     <p>{{ blog_post.content }}</p>

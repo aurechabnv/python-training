@@ -9,7 +9,9 @@
 <body>
     <h1>Le Blog</h1>
     {% for post in posts %}
-        <h2>{{ forloop.counter }}.  {{ post.title }}</h2>
+        <a href="{% url 'blog-post' slug=post.slug %}">
+            <h2>{{ forloop.counter }}.  {{ post.title }}</h2>
+        </a>
         {% if not forloop.last %}
         <hr>
         {% endif %}
