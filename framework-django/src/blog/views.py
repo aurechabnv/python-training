@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
@@ -6,7 +6,7 @@ from django.template.loader import render_to_string
 from blog.models import BlogPost
 
 
-@login_required
+@user_passes_test(lambda u: u.username == 'test')
 def index(request):
     return render(request, 'blog/index.html')
     # return redirect('home')
