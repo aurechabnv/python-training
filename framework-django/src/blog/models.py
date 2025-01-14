@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 
 
@@ -30,6 +31,13 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def number_of_words(self):
+        return len(self.content.split())
+
+    def get_absolute_url(self):
+        return reverse('blog-post', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:

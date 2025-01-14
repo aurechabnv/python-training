@@ -1,11 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>{{ blog_post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Fichier de template : {{ blog_post.title }}</h1>
+    <h1>{{ blog_post.title }}</h1>
+    <h2>{{ blog_post.number_of_words }} mots</h2>
     <p>{{ blog_post.content }}</p>
 </body>
 </html>
