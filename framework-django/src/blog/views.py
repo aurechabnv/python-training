@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
@@ -5,9 +6,10 @@ from django.template.loader import render_to_string
 from blog.models import BlogPost
 
 
+@login_required
 def index(request):
-    # return render(request, 'blog/index.html')
-    return redirect('home')
+    return render(request, 'blog/index.html')
+    # return redirect('home')
 
 def article(request, numero_article):
     if numero_article in ['01', '02', '03']:
