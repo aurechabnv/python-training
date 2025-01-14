@@ -1,5 +1,5 @@
 from django.http import Http404, HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 
 from blog.models import BlogPost
@@ -15,10 +15,7 @@ def article(request, numero_article):
     return render(request, 'blog/article_not_found.html')
 
 def blog_post(request, slug):
-    try:
-        post = BlogPost.objects.get(slug=slug)
-    except BlogPost.DoesNotExist:
-        raise Http404(f"L'article '{slug}' n'existe pas")
+    post = get_object_or_404(BlogPost, slug=slug)
 
     # response = HttpResponse(render_to_string('blog/post.html', context={'blog_post': post}))
     response = render(request, 'blog/post.html', context={'blog_post': post})
