@@ -1,12 +1,13 @@
 from django.http import Http404, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 
 from blog.models import BlogPost
 
 
 def index(request):
-    return render(request, 'blog/index.html')
+    # return render(request, 'blog/index.html')
+    return redirect('home')
 
 def article(request, numero_article):
     if numero_article in ['01', '02', '03']:
