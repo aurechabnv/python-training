@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Le Blog</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog-style.css' %}">
 </head>
 <body>
     <h1>Le Blog</h1>
@@ -14,7 +14,7 @@
             <h2>{{ forloop.counter }}.  {{ post.title }} ({{ categories_count }})</h2>
         </a>
         <small>Cet article est présent dans {{ categories_count }} catégories.</small>
-
+        <p>{{ post.content|truncatewords:100|striptags|safe }}</p>
         {% if not forloop.last %}
         <hr>
         {% endif %}
