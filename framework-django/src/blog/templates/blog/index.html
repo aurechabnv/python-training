@@ -9,12 +9,16 @@
 <body>
     <h1>Le Blog</h1>
     {% for post in posts %}
+        {% with categories_count=post.category.count %}
         <a href="{% url 'blog-post' slug=post.slug %}">
-            <h2>{{ forloop.counter }}.  {{ post.title }}</h2>
+            <h2>{{ forloop.counter }}.  {{ post.title }} ({{ categories_count }})</h2>
         </a>
+        <small>Cet article est présent dans {{ categories_count }} catégories.</small>
+
         {% if not forloop.last %}
         <hr>
         {% endif %}
+        {% endwith %}
     {% empty %}
     <p>Le blog ne contient aucun article</p>
     {% endfor %}
