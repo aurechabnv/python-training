@@ -1,13 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Le Blog</title>
-    <link rel="stylesheet" href="{% static 'css/blog-style.css' %}">
-</head>
-<body>
-    <h1>Le Blog</h1>
+{% extends 'blog/base.html' %}
+
+{% block title %}<title>Le Blog</title>{% endblock %}
+
+{% block content %}
     {% for post in posts %}
         {% with categories_count=post.category.count %}
         <a href="{% url 'blog-post' slug=post.slug %}">
@@ -22,5 +17,4 @@
     {% empty %}
     <p>Le blog ne contient aucun article</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
