@@ -33,7 +33,7 @@ class BlogPost(models.Model):
         return self.title
 
     @property
-    def number_of_words(self):
+    def word_count(self):
         return len(self.content.split())
 
     def get_absolute_url(self):
