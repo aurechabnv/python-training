@@ -3,6 +3,7 @@
 {% block title %}<title>Le Blog</title>{% endblock %}
 
 {% block content %}
+    <a href="{% url 'new-post' %}">Ajouter un article</a>
     {% for post in posts %}
         {% with categories_count=post.category.count %}
         <a href="{% url 'blog-post' slug=post.slug %}">

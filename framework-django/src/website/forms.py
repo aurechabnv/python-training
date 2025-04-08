@@ -27,10 +27,10 @@ class BlogPostForm(forms.ModelForm):
         model = BlogPost
         fields = [
             "title",
-            "date",
-            "author",
+            # "date",
+            # "author",
             "category",
-            "description",
+            "content",
         ]
         labels = {
             "title": "Titre",
