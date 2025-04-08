@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenue sur mon site</h1>
+        <h1>{{ title }}</h1>
         <h2>Aujourd'hui, nous sommes le {{ today|date:'j F Y' }}</h2>
         <h3>Il est actuellement {{ today|date:'G\hi' }}</h3>
+        <h4><a href="/blog/">Accéder au Blog</a></h4>
     </div>
 </body>
 </html>
